@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+begin
+  require 'cmdparse'
+rescue LoadError
+  abort(<<~MESSAGE)
+    Please install "cmdparse" to run this
+  MESSAGE
+end
+
+require 'focus'
+
+# basic setup
+parser = CmdParse::CommandParser.new(handle_exceptions: true)
+parser.main_options.program_name = 'focus'
+parser.main_options.version = '1.0.0'
+parser.main_options.banner = 'Switch your focus to one task'
+
+# common commands
+parser.add_command(CmdParse::HelpCommand.new)
+parser.add_command(CmdParse::VersionCommand.new)
+
+# focus commands
+# parser.add_command(Focus::ListCommand.new)
+parser.add_command('list') do |cmd|
+  cmd.short_desc = 'List available tasks'
+  cmd.takes_commands = false
+  cmd.action do
+    require 'xdg'
+  end
+end
+parser.add_command('chooser')
+parser.add_command('start')
+
+# ... and go
+parser.parse
