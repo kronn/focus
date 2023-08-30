@@ -1,0 +1,7 @@
+---
+name: INBOX Zero
+start: mails
+stop: killall mutt
+check:
+metric: mails count
+goal: 0
