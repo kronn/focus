@@ -1,0 +1,11 @@
+name: focus
+version: 1.0.0
+
+dependencies:
+  xdg_base_directory:
+    github: tijn/xdg_base_directory
+    version: ~> 1.0.5
+
+  commander:
+    github: mrrooijen/commander
+    version: ~> 0.4.0

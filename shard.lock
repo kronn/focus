@@ -1,0 +1,10 @@
+version: 2.0
+shards:
+  commander:
+    git: https://github.com/mrrooijen/commander.git
+    version: 0.4.0
+
+  xdg_base_directory:
+    git: https://github.com/tijn/xdg_base_directory.git
+    version: 1.0.5+git.commit.8399964bce6ba0754fb94e85e83d3a816bc09ae5
+
